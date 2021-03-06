@@ -30,6 +30,8 @@ fs.readFile('/home/ubuntu/vk_bot_token.txt', 'utf8', function(err, data) {
 		   
 		   message = message.replace(/\[.*\]/g, '');
 		   
+		   message = message.replace('@all', '');
+		   
 		   console.log(">>>" + message + "<<<");
 		   
 		   if (message && message.length > 0)
@@ -47,6 +49,8 @@ fs.readFile('/home/ubuntu/vk_bot_token.txt', 'utf8', function(err, data) {
 			let message = answer.message.text;
 			
 			message = message.replace(/\[.*\]/g, '');
+			
+			message = message.replace('@all', '');
 			
 			console.log(">>>" + message + "<<<");
 			
