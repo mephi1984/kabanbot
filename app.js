@@ -15,11 +15,13 @@ fs.readFile('/home/ubuntu/vk_bot_token.txt', 'utf8', function(err, data) {
 	
     console.log("Token: >" + data + "<");
 	
-	const bot = new VkBot(stx);
+	const bot = new VkBot(data);
 
 
 	bot.on((answer) => {
 		console.log("bot on ctx");
+		
+		
   
   //console.log(answer);
  
@@ -34,14 +36,18 @@ fs.readFile('/home/ubuntu/vk_bot_token.txt', 'utf8', function(err, data) {
 	   }
 	   else
 	   {
+		   
+		   if (answer && answer.message && answer.message.text)
+		   {
 		  
-		let message = answer.message.text;
-		
-		message = message.replace(/\[.*\]/g, '');
-		
-		console.log(">>>" + message + "<<<");
-	   
-		return answer.reply(KhaleesiModule(message));
+			let message = answer.message.text;
+			
+			message = message.replace(/\[.*\]/g, '');
+			
+			console.log(">>>" + message + "<<<");
+		   
+			return answer.reply(KhaleesiModule(message));
+		   }
 	   
 	   }
 	});
