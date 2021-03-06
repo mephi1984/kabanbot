@@ -31,8 +31,12 @@ fs.readFile('/home/ubuntu/vk_bot_token.txt', 'utf8', function(err, data) {
 		   message = message.replace(/\[.*\]/g, '');
 		   
 		   console.log(">>>" + message + "<<<");
+		   
+		   if (message && message.length > 0)
+			{
 	   
-		   return answer.reply(KhaleesiModule(message));
+				return answer.reply(KhaleesiModule(message));
+			}
 	   }
 	   else
 	   {
@@ -45,8 +49,11 @@ fs.readFile('/home/ubuntu/vk_bot_token.txt', 'utf8', function(err, data) {
 			message = message.replace(/\[.*\]/g, '');
 			
 			console.log(">>>" + message + "<<<");
-		   
-			return answer.reply(KhaleesiModule(message));
+			
+			if (message && message.length > 0)
+			{
+			    return answer.reply(KhaleesiModule(message));
+			}
 		   }
 	   
 	   }
